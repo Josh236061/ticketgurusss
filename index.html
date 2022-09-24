@@ -1,12 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticketmastersss</title>
+
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src=""></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:800&display=swap" rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" href="./css/stylesheet2.css">
+
 </head>
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="dark"><i class="fas fa-tree"></i>Ticketmastersss</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="dark">Find all your local entertainment here.</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col m1"></div>
+            <div class="col m10">
+                <div class="card-panel card">
+                    <div class="row">
+                        <div class="input-field col m6">
+                            <input placeholder="i.e. City" id="location" type="text" class="validate">
+                            <label for="location">Location: City</label>
+                        </div>
+                        <div class ="col m6">
+                            <div class="input-field">
+                                <select>
+                                    <option value="" disabled selected>Choose your genre</option>
+                                    <option value="rock">Rock</option>
+                                    <option value="pop">Pop</option>
+                                    <option value="hip-hop/rap">Hip-Hop/Rap</option>
+                                    <option value="r&b">R&B</option>
+                                    <option value="country">Country</option>
+                                    <option value="soul">Soul</option>
+                                    <option value="jazz">Jazz</option>
+                                    <option value="classical">Classical</option>                                
+                                </select>
+                                <label>Genre</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="m12" style="text-align: center;">
+                            <a class="btn waves-effect waves-light hoverable" type="submit" name="action" id="searchBtn">Search music events
+                                <i class="material-icons right">search</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m1"></div>
+        </div>
+        <div class="row">
+            <div class="col m5">
+                <div class="card col m12 hidden" id="results">
+                    <ul class="results">
+                        <li class="results-header flow-text"><h4>Events happening:</h4></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col m7">
+                <div class="card hidden" id="events">
+                    <div class="row section">
+                        <div class="col m12">
+                            <div class="center" id=eventImg>
+                                <img id="eventImage" class="center">
+                        </div>
+
+                        <div id="eventDescription" class="col m12"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+    </div>
     
 </body>
 </html>
