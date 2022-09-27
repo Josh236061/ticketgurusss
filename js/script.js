@@ -111,7 +111,7 @@ var displayEventInfo = function(event){
                 var localStartDate = data.dates.start.localDate;
                 var venueInfo = data._embedded.venues[0].name;
                 var eventStatus = data.dates.status.code;
-                //var ticketPriceMax = data.priceRanges.max;
+                var ticketPriceMax = data.priceRanges[0].max;
                 var ticketPriceMin = data.priceRanges[0].min;
         
                 //display data to DOM
@@ -124,13 +124,17 @@ var displayEventInfo = function(event){
 
                 //add the data to the elements
                 eventNameEl.innerHTML= resultsName;
-                artistEl.innerHTML = "Artist:" + resultsArtist;
-                localStartDateTimeEl.innerHTML = "Start Date/Time:" + localStartDate + "/" + localStartTime;
-                venueInfoEl.innerHTML = "Venue Info:" + venueInfo;
-                eventStatusEl.innerHTML = "Event Status:"  + eventStatus
-                tickerPriceEl.innerHTML = "Ticket Price:" + ticketPriceMin + "USD";
+                artistEl.innerHTML = "Artist:   " + resultsArtist;
+                localStartDateTimeEl.innerHTML = "Start Date/Time:   " + localStartDate + "  /  " + localStartTime;
+                venueInfoEl.innerHTML = "Venue Info:   " + venueInfo;
+                eventStatusEl.innerHTML = "Event Status:   "  + eventStatus
+                tickerPriceEl.innerHTML = "Ticket Price:    " + ticketPriceMin +"  -   " + ticketPriceMax + "    USD";
 
-                
+                // add ticket url to href and set it as an attribute to anchor/purchaseBtn
+                var purchaseBtn = document.querySelector("#ticketLink")
+                var ticketLink = data.url
+                console.log(ticketLink)
+                purchaseBtn.setAttribute("href", ticketLink)
 
 
                
