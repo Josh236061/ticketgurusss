@@ -38,10 +38,45 @@ $(document).ready(function() {  //initializes .js <script>
                     $(".results").append(createButtons,createLine);
                 }
 
+                $(document).on("click", ".resultsBtn", function(event) { //generates event '.results' from Ticketmaster API 'eventQuery' URL
+                    event.preventDefault();
+                    var keyword = $(this).attr("keyword");
+                    var city = $(this).attr("city");
+                    var eventQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+city+"&keyword="+keyword+"&apikey="+ ticketMasterAPI;
+
+                    $.ajax({
+                        url: eventQueryURL,
+                        method: "GET"
+                        }).then(function(response)  {
+                            console.log(response);
+                            var getTitle = response._embedded.events[0].name //generates and display event name
+                            $("#eventName").text(getTitle);
+
+                            var artist = response._embedded.events[0]._embedded.attractions[0].name; //generates and display artist name
+                            $("#artistName").text("Artist: " + artist).attr("artist-name", artist);
+
+                            var venueName = response._embedded.events[0]._embedded.venues[0].name;
+                            var venueAddress = response._embedded.events[0]._embedded.venues[0].address.line1;
+                            var venueState = response._embedded.events[0]._embedded.venues[0].state.stateCode;
+                            var venueCity = response._embedded.events[0]._embedded.venues[0].city.name;
+                            var venuePostalCode = response._embedded.events[0]._embedded.venues[0].postalCode;
+
+                            $("#venueInfo").text("Venue: " + venueName + " ("+venueAddress+", "+venueCity+", "+venueState+" "+venuePostalCode+")");
+
+                            var eventStatus= response._embedded.events[0].dates.status.code;
+                            $("#eventStatus").text("Event Status : " + eventStatus.toUpperCase());
+
+                            var image = response._embedded.events[0]._embedded.attractions[0].images[4].url;
+                            $("#eventImage").attr("src", image);
+
+                            var ticketLink = response._embedded.events[0]._embedded.attractions[0].url;
+                            $("#ticketLink").attr("href", ticketLink);
+
+
+                        })
+                })
+
             })
     }
-
-
-
 
 })
