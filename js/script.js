@@ -2,7 +2,7 @@ const searchBtn = document.querySelector("#searchBtn");
 var cityEl = document.querySelector("#location");
 var genreEl = document.querySelector("select");
 var resultsContainer=document.querySelector(".results");
-var nameResult = document.querySelectorAll("h5")
+var nameResult = document.querySelectorAll("h5");
 
 
 
@@ -20,7 +20,7 @@ if (userCity&&selectedGenre) {
 
 }
 
-}
+};
 
 // fetch data based on the user's inputs
 var getSearchData = function(city,genre){
@@ -91,8 +91,7 @@ var displayUserSearch = function(data){
         localStorage.setItem("localDate", localStartDate)
     }
     
-
-}
+};
 
 var displayEventInfo = function(event){
     var targetEventID = event.target.id;
@@ -143,9 +142,6 @@ var displayEventInfo = function(event){
             
     })
 
-    
-    
-    
    
 };
 
@@ -158,4 +154,4 @@ resultsContainer.addEventListener("click", function(event){
         var whatIsIt = event.target.getAttribute("id")
         console.log(whatIsIt)
     }
-})
+});
