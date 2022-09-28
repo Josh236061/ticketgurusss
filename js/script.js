@@ -39,7 +39,8 @@ var getSearchData = function(city,genre){
         })
             }else{
 
-                return
+                nameResult.innerHTML="0 suggestions found."
+                
             }
             
     })
@@ -79,9 +80,8 @@ var displayUserSearch = function(data){
 
         //add div to li then add class to li = eventName
         createdLi.appendChild(createDiv);
-        //createdLi.setAttribute("id",eventName);
-        //createdLi.classList.add("event-target");
-        //console.log(createdLi.id)
+        createdLi.setAttribute("id",eventName);
+        createdLi.classList.add("event-target");
     
         //add li to ul
         resultsContainer.appendChild(createdLi)
