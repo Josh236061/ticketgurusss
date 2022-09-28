@@ -58,6 +58,6 @@ API
 
 ## URLs Links
 
-Github Repo URL: https://github.com/Josh236061/ticketmastersss
+Github Repo URL: https://github.com/Josh236061/ticketgurusss
 
 Published Website URL:
