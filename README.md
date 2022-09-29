@@ -59,6 +59,9 @@ API
 
 ## Project Screenshot
 
+<img width="953" alt="image" src="https://user-images.githubusercontent.com/71394743/192931351-60c516b4-7e0b-4cf8-88b9-d3d49f5c44eb.png">
+
+
 ## URLs Links
 
 Github Repo URL: https://github.com/Josh236061/ticketgurusss
