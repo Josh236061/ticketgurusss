@@ -52,6 +52,11 @@ var displayUserSearch = function(data){
     var events = data._embedded.events;
     // clear previous search
     resultsContainer.innerHTML= "";
+
+    //remove hidden class
+    var resultsDisplayEl = document.querySelector("#results")
+    resultsDisplayEl.removeAttribute("class", "hidden")
+    
     // create a card for each result
     for (var i=0; i<events.length; i++){
         //create display elements
@@ -102,6 +107,10 @@ var displayEventInfo = function(event){
         if(response.ok){
             response.json().then(function(data){
                 console.log(data)
+
+                //remove hidden class
+                var eventsDisplayEl = document.querySelector("#events");
+                eventsDisplayEl.removeAttribute("class", "hidden");
 
                 // get var from data to display
                 var resultsName = data.name;
