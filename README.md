@@ -1,8 +1,11 @@
-# ticketgurusss
-Rice U Bootcamp Project 1 Assignment: TicketGurusss(s) Project 1
-
+# TicketGurusss
+Rice U Bootcamp Project 1 Assignment: TicketGurusss Project 1
 
 ## Introduction
+
+At TicketGurusss, your favorite non-Guru Developers welcome ALL Users young and old, to enjoy a seamless experience searching for all of your favorite music events around your area, day or night, anytime you like!
+This is an application that assist Users to find concerts based on their genre(s) of choice, and within close city proximities from their current locations. 
+Further, it provides all the necessary information for all music events as well as link(s) to the ticketmaster and related 3rd-Party seller websites, as well as connected album covers of artist(s) and information. Here at TicketGurusss, WE GOT YOU COVERED!
 
 ## User Story
 
