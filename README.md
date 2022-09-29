@@ -60,4 +60,4 @@ API
 
 Github Repo URL: https://github.com/Josh236061/ticketgurusss
 
-Published Website URL:
+Published Website URL: https://josh236061.github.io/ticketgurusss/
