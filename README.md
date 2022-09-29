@@ -1,9 +1,5 @@
 # ticketgurusss
-<<<<<<< HEAD
-Rice U Bootcamp Project 1 Assignment: TicketMaster(s) Project 1
-=======
 Rice U Bootcamp Project 1 Assignment: TicketGurusss(s) Project 1
->>>>>>> develop_final
 
 
 ## Introduction
