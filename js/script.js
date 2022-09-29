@@ -1,10 +1,11 @@
-$(document).ready(function() {  //initializes .js <script>
+$(document).ready(function() {
 
-    $("#sesarchBtn").on("click", function(){
+
+    $("#searchBtn").on("click", function(){
         event.preventDefault();
-        var city = $("#location").val().trim();
+        var city = $("#location").val().trim();   
         var genre = $('select').val();
-
+        
         inputQuery(city, genre);
 
 
@@ -26,33 +27,35 @@ $(document).ready(function() {  //initializes .js <script>
                 resultsHeader.text("Events Happening:");
                 $(".results").append(resultsHeader)
                 $(".results").append($("<hr>"));
-
+                
                 //display event name on page
-                for(var i = 0; i < 10; i++) {
+                for(var i = 0; i < 10; i++){
                     var createButtons = $("<li>");
                     var createLine = $("<hr>");
                     var getName = response._embedded.events[i].name //use loop to place in placeholder as clickeable links
                     createButtons.addClass("resultsBtn");
-                    createButtons.attr({"city": city, "keyword": getName}); //set the keyword to the query to pull specific event(s) information
+                    createButtons.attr({"city": city, "keyword": getName}); //set the keyword to the query to pull specific info
                     createButtons.text(getName);
                     $(".results").append(createButtons,createLine);
+
                 }
 
-                $(document).on("click", ".resultsBtn", function(event) { //generates event '.results' from Ticketmaster API 'eventQuery' URL
+
+                $(document).on("click", ".resultsBtn", function(event) {
                     event.preventDefault();
                     var keyword = $(this).attr("keyword");
                     var city = $(this).attr("city");
                     var eventQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&city="+city+"&keyword="+keyword+"&apikey="+ ticketMasterAPI;
-
+            
                     $.ajax({
                         url: eventQueryURL,
                         method: "GET"
-                        }).then(function(response)  {
+                        }).then(function(response) {
                             console.log(response);
-                            var getTitle = response._embedded.events[0].name //generates and display event name
+                            var getTitle = response._embedded.events[0].name
                             $("#eventName").text(getTitle);
 
-                            var artist = response._embedded.events[0]._embedded.attractions[0].name; //generates and display artist name
+                            var artist = response._embedded.events[0]._embedded.attractions[0].name;
                             $("#artistName").text("Artist: " + artist).attr("artist-name", artist);
 
                             var venueName = response._embedded.events[0]._embedded.venues[0].name;
@@ -60,10 +63,9 @@ $(document).ready(function() {  //initializes .js <script>
                             var venueState = response._embedded.events[0]._embedded.venues[0].state.stateCode;
                             var venueCity = response._embedded.events[0]._embedded.venues[0].city.name;
                             var venuePostalCode = response._embedded.events[0]._embedded.venues[0].postalCode;
+                            $("#venueInfo").text("Venue: " + venueName + " ("+venueAddress+", "+venueCity+", "+ venueState+" "+ venuePostalCode +")");
 
-                            $("#venueInfo").text("Venue: " + venueName + " ("+venueAddress+", "+venueCity+", "+venueState+" "+venuePostalCode+")");
-
-                            var eventStatus= response._embedded.events[0].dates.status.code;
+                            var eventStatus = response._embedded.events[0].dates.status.code;
                             $("#eventStatus").text("Event Status : " + eventStatus.toUpperCase());
 
                             var image = response._embedded.events[0]._embedded.attractions[0].images[4].url;
@@ -72,11 +74,23 @@ $(document).ready(function() {  //initializes .js <script>
                             var ticketLink = response._embedded.events[0]._embedded.attractions[0].url;
                             $("#ticketLink").attr("href", ticketLink);
 
+                            // var ticketLink = response._embedded.events[0]._embedded.attractions[0].url; (script 2)
+                            // var minPrice = response._embedded.events[0].priceRanges[0].min; (script 2)
+                            // var maxPrice = response._embedded.events[0].priceRanges[0].max; (script 2)
+                            // var startDate = response._embedded.events[0].dates.start.localDate; (script 2)
+                            // var startTime = response._embedded.events[0].dates.start.localTime; (script 2)
 
+                    
+            
                         })
+            
                 })
-
+            
+            
+            
             })
+
     }
 
 })
+
